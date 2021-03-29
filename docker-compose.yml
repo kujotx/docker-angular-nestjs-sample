@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+    web:
+        env_file: ./.env
+        container_name: ${CONTAINER_NAME}-web
+        build:
+            context: .
+            dockerfile: dockerfile.web
+        ports:
+            - ${WEB_PORT}:80
+        volumes: 
+            - /apps/web
+    api:
+        env_file: ./.env
+        container_name: ${CONTAINER_NAME}-api
+        build:
+            context: .
+            dockerfile: dockerfile.api
+        working_dir: /apps/api
+        command: npm run start:prod
+        ports:
+            - ${API_PORT}:80
+        volumes: 
+            - /apps/api
