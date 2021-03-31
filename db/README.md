@@ -6,22 +6,17 @@ This directory contains a db-migrate database application for automatically exec
 
 ## Quick Start
 
-- Install Docker Desktop
-- Run the docker-compose file to create and run the db service.
+- Go to the project root directory.
+- Run the setup.ps1 script to install Docker Desktop, Node, db-migrate-mssql and db-migrate. 
+- Run the build.ps1 script to create all of the containers and run the db.
 
-```bash
-docker-compose up --build --force-recreate --quiet-pull db
+```powershell
+> .\setup.ps1
+Machine configured
+
+> .\build.ps1
+
 ```
-
-- Install the db-migrate CLI globally
-
-```bash
-npm install -g db-migrate
-```
-
-- Create a database called AdoptAHighway in your SQL instance.
-- Create a copy of the .env file and edit the port to match your local instance.
-- Execute the following NPM task to create a sample table
 
 ```bash
 npm run migrate:up
@@ -39,7 +34,7 @@ db-migrate create 20210331090500-create-road-segment --sql-file true --config .\
 
 ## Next Steps
 
-
 ## Important
 
+- Migration names must begin with a 14 digit timestamp and hyphenated name. There is a regular expression that fails when this is not properly created. Use the `db-migrate create` command to ensure proper migration creation of the JavaScript and SQL files.
 - Migration names must begin with a 14 digit timestamp and hyphenated name. There is a regular expression that fails when this is not properly created. Use the `db-migrate create` command to ensure proper migration creation of the JavaScript and SQL files.

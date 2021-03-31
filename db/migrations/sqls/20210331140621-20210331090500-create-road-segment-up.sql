@@ -1,5 +1,5 @@
 CREATE TABLE dbo.RoadSegments (
-    RoadSegmentId UNIQUEIDENTIFIER DEFAULT(newsequentialid()) PRIMARY KEY,
+    Id UNIQUEIDENTIFIER DEFAULT(newsequentialid()) PRIMARY KEY,
     RouteName NVARCHAR(255) NOT NULL,
     SegmentStatus NVARCHAR(255) NOT NULL,
     RoadSegmentLength SMALLINT NOT NULL DEFAULT(2),

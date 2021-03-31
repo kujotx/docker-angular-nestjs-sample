@@ -1,26 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { CreateRoadsegmentDto } from './dto/create-roadsegment.dto';
-import { UpdateRoadsegmentDto } from './dto/update-roadsegment.dto';
+import { Injectable, Inject } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { RoadSegmentEntity } from './entities/roadsegment.entity';
 
 @Injectable()
-export class RoadsegmentsService {
-  create(createRoadsegmentDto: CreateRoadsegmentDto) {
-    return 'This action adds a new roadsegment';
-  }
+export class RoadSegmentService {
+    constructor(
+        @Inject('ROADSEGMENT_REPOSITORY')
+        private photoRepository: Repository<RoadSegmentEntity>,
+    ) {}
 
-  findAll() {
-    return `This action returns all roadsegments`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} roadsegment`;
-  }
-
-  update(id: number, updateRoadsegmentDto: UpdateRoadsegmentDto) {
-    return `This action updates a #${id} roadsegment`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} roadsegment`;
-  }
+    async findAll(): Promise<RoadSegmentEntity[]> {
+        return this.photoRepository.find();
+    }
 }

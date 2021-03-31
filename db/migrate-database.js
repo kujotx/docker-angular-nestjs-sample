@@ -15,11 +15,11 @@ module.exports = {
             }
         },
         driver: 'mssql',
-        port: 5434,
+        port: 1433,
         options: {
             enableArithAbort: true,
             fallbackToDefaultDb: true,
-            port: 5434
+            port: 1433
         }        
     }
 };
