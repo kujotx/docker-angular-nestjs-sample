@@ -29,6 +29,8 @@ npm run migrate:up
 
 ## Explanation
 
+This example uses Docker to run Microsoft SQL Server 2019 latest container. We need to create an initial database manually.
+
 The migration was creating using [db-migrate's create command](https://db-migrate.readthedocs.io/en/latest/Getting%20Started/commands/#create) from a command prompt:
 
 ```bash
@@ -38,5 +40,6 @@ db-migrate create 20210331090500-create-road-segment --sql-file true --config .\
 ## Next Steps
 
 
-## Reference
+## Important
 
+- Migration names must begin with a 14 digit timestamp and hyphenated name. There is a regular expression that fails when this is not properly created. Use the `db-migrate create` command to ensure proper migration creation of the JavaScript and SQL files.

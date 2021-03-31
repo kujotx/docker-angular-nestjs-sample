@@ -6,7 +6,23 @@ This repository provides a mono-repository containing an Angular base-web and a 
 
 ## Quick Start
 
-With Docker installed, run `docker-compose up --build` to launch both applications. The web is served on the host machine's port 3000, and the API over port 3100 by default. web and api source is under the /apps directory. Each app is configured to run on port 80 by default.
+- Execute setup.ps1 to install all dependencies
+- Execute build.ps1 to run Docker compose
+
+## Explanation
+
+`setup.ps1` will install Chocolatey, followed by some needed packages for a Windows machine, then uses NPM to install needed console tools for building. This requires elevated admin rights the  first time, but not afterwards. After installing Chocolatey, the command for each dependency is tested. When the command does not return, that package is installed.
+
+The following Chocolatey packages are installed:
+
+Docker Desktop, to run Docker containers
+Node LTS Latest, to provide Node.JS and NPM
+
+The following NPM packages are installed globally:
+
+db-migrate, to provide database script execution support for CI\CD
+@angular/cli, to provide Angular CLI for the web
+@nestjs/cli, to provide NEST JS CLI for the api
 
 ## Next Steps
 
