@@ -26,11 +26,13 @@
     "@nestjs/platform-express": "^7.6.13",
     "@nestjs/swagger": "^4.8.0",
     "@nestjs/typeorm": "^7.1.5",
+    "dotenv": "^8.2.0",
     "mssql": "^6.3.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6",
     "swagger-ui-express": "^4.1.6",
+    "tedious": "^11.0.6",
     "typeorm": "^0.2.32"
   },
   "devDependencies": {

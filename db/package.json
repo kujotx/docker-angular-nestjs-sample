@@ -4,16 +4,22 @@
   "description": "Database",
   "main": "./src/index.js",
   "scripts": {
-    "init-db": "db-migrate db:create AdoptAHighway --config ./create-database.js",
+    "create:db": "node create-database.js",
     "migrate:up": "db-migrate up --config ./migrate-database.js",
-    "migrate:down": "db-migrate down --config ./migrate-database.js"
+    "migrate:down": "db-migrate down --config ./migrate-database.js",
+    "sample-data": "db-migrate up:sample-data --silent --config ./migrate-database.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "db-migrate": "^0.11.12",
     "db-migrate-mssql": "^2.1.0",
+    "debug": "^4.3.1",
     "dotenv": "^8.2.0",
-    "mssql": "^6.3.1"
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.23.0",
+    "mssql": "^6.3.1",
+    "sqlcmd-runner": "^0.1.1",
+    "tedious": "^11.0.6"
   }
 }

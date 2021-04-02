@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
-import { RoadsegmentsService } from './roadsegments.service';
+import { DatabaseModule } from 'src/database/database.module';
 import { RoadsegmentsController } from './roadsegments.controller';
+import { roadSegmentProviders } from './roadsegments.provider';
+import { RoadSegmentService } from './roadsegments.service';
 
 @Module({
-  controllers: [RoadsegmentsController],
-  providers: [RoadsegmentsService]
+    imports: [DatabaseModule],
+    providers: [...roadSegmentProviders, RoadSegmentService],
+    exports: [RoadSegmentService],
+    controllers: [RoadsegmentsController],
 })
-export class RoadsegmentsModule {}
+export class RoadSegmentModule {}

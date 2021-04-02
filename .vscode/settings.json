@@ -1,6 +1,12 @@
 {
     "cSpell.words": [
-        "esversion"
+        "esversion",
+        "nestjs",
+        "roadsegment",
+        "roadsegments",
+        "sqlcmd",
+        "txdotuser",
+        "typeorm"
     ],
-    "vsicons.presets.nestjs": true
+    "vsicons.presets.nestjs": true,
 }

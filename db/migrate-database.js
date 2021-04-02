@@ -1,25 +1,27 @@
+var path = require('path');
+var dotenv = require('dotenv');
+
 //Database Configuration
-require('dotenv').config({ path: require('path').join(__dirname, '../.env')});
+dotenv.config({ path: path.join(__dirname, '../.env')});
 
 module.exports = {
     dev: {
         appName: `${process.env.appName}-DB`,
-        server: "127.0.0.1", 
-        database: "AdoptAHighway",
+        server: process.env.DB_HOST, 
+        database: process.env.DB_NAME,
         enableArithAbort: true,
         authentication: {
             type: 'default',
             options: {
-                userName: 'sa',
-                password: 'P@55w0rd!',
+                userName: process.env.SA_USER,
+                password: process.env.SA_PASSWORD,
             }
         },
         driver: 'mssql',
-        port: 5434,
         options: {
             enableArithAbort: true,
             fallbackToDefaultDb: true,
-            port: 5434
+            port: Number(process.env.DB_PORT),
         }        
     }
 };

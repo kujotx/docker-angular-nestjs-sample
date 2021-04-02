@@ -1,21 +1,15 @@
-//Database Configuration
-require('dotenv').config({ path: require('path').join(__dirname, '../.env')});
+var sqlcmd = require('sqlcmd-runner');
+var path = require('path');
+var dotenv = require('dotenv');
 
-module.exports = {
-    dev: {
-        server: "localhost", 
-        authentication: {
-            type: 'default',
-            options: {
-                userName: 'sa',
-                password: 'P@55w0rd!',
-            }
-        },
-        driver: 'mssql',
-        port: 5434,
-        options: {
-            fallbackToDefaultDb: true,
-            port: 5434
-        }        
-    }
-};
+dotenv.config({ path: path.join(__dirname, '../.env') });
+
+sqlcmd({
+    inputFiles: ['./mssql/setup.sql'],
+    server: process.env.DB_HOST | {
+        name: process.env.DB_HOST,
+        instance: 'default',
+        port: Number(process.env.DB_PORT) 
+    },
+    database: 'master',
+});
