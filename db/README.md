@@ -36,5 +36,5 @@ db-migrate create 20210331090500-create-road-segment --sql-file true --config .\
 
 ## Important
 
-- Migration names must begin with a 14 digit timestamp and hyphenated name. There is a regular expression that fails when this is not properly created. Use the `db-migrate create` command to ensure proper migration creation of the JavaScript and SQL files.
-- Migration names must begin with a 14 digit timestamp and hyphenated name. There is a regular expression that fails when this is not properly created. Use the `db-migrate create` command to ensure proper migration creation of the JavaScript and SQL files.
+- Migration names must begin with a 14 digit timestamp and hyphenated name. There is a regular expression that fails when this is not properly created. 
+- Use the `db-migrate create` command to ensure proper migration creation of the JavaScript and SQL files.

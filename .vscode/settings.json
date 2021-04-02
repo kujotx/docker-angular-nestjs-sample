@@ -5,6 +5,7 @@
         "roadsegment",
         "roadsegments",
         "sqlcmd",
+        "txdotuser",
         "typeorm"
     ],
     "vsicons.presets.nestjs": true,
