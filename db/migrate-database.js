@@ -4,22 +4,21 @@ require('dotenv').config({ path: require('path').join(__dirname, '../.env')});
 module.exports = {
     dev: {
         appName: `${process.env.appName}-DB`,
-        server: "127.0.0.1", 
-        database: "AdoptAHighway",
+        server: process.env.DB_HOST, 
+        database: process.env.DB_NAME,
         enableArithAbort: true,
         authentication: {
             type: 'default',
             options: {
-                userName: 'sa',
-                password: 'P@55w0rd!',
+                userName: process.env.SA_USER,
+                password: process.env.SA_PASSWORD,
             }
         },
         driver: 'mssql',
-        port: 1433,
         options: {
             enableArithAbort: true,
             fallbackToDefaultDb: true,
-            port: 1433
+            port: Number(process.env.DB_PORT),
         }        
     }
 };
