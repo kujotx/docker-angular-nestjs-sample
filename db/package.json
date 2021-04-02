@@ -4,7 +4,7 @@
   "description": "Database",
   "main": "./src/index.js",
   "scripts": {
-    "create:db": "env-cmd sqlcmd -S localhost -U sa -P P@55w0rd! -d master -i ./mssql/setup.sql",
+    "create:db": "node create-database.js",
     "migrate:up": "db-migrate up --config ./migrate-database.js",
     "migrate:down": "db-migrate down --config ./migrate-database.js",
     "sample-data": "db-migrate up:sample-data --silent --config ./migrate-database.js"
@@ -17,6 +17,7 @@
     "debug": "^4.3.1",
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
+    "eslint": "^7.23.0",
     "mssql": "^6.3.1",
     "sqlcmd-runner": "^0.1.1",
     "tedious": "^11.0.6"

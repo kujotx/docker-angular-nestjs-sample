@@ -4,6 +4,7 @@
         "nestjs",
         "roadsegment",
         "roadsegments",
+        "sqlcmd",
         "typeorm"
     ],
     "vsicons.presets.nestjs": true,

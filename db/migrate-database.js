@@ -1,5 +1,8 @@
+var path = require('path');
+var dotenv = require('dotenv');
+
 //Database Configuration
-require('dotenv').config({ path: require('path').join(__dirname, '../.env')});
+dotenv.config({ path: path.join(__dirname, '../.env')});
 
 module.exports = {
     dev: {
