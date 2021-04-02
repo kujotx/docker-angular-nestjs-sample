@@ -1,8 +1,5 @@
+import constants from 'src/common/constants';
 import { createConnection } from 'typeorm';
-import dotenv from 'dotenv';
-import path from 'path';
-
-dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 export const databaseProviders = [
     {
@@ -10,13 +7,16 @@ export const databaseProviders = [
         useFactory: async () =>
             await createConnection({
                 type: 'mssql',
-                host: 'localhost',
-                port: Number(process.env.DB_PORT),
-                username: process.env.SA_USER,
-                password: process.env.SA_PASSWORD,
-                database: process.env.DB_NAME,
+                host: constants.dbHost,
+                port: constants.dbPort,
+                username: constants.dbUser,
+                password: constants.dbPassword,
+                database: 'AdoptAHighway',
                 entities: [__dirname + '/../**/*.entity{.ts,.js}'],
                 synchronize: false,
+                options: {
+                    enableArithAbort: true,
+                },
             }),
     },
 ];
